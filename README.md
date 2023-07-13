@@ -117,7 +117,7 @@ In the DC-1 VM, the Server Manager Dashboard should be the first window that sho
 When finished installed, there will be a triangle symbol next to the flag in the Server Manager, click that and press "Promote this server to a domain controller". 
 </p>
 <p>
-<img src="https://i.imgur.com/j33lA0c.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/j33lA0c.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <p>It should now take you to a Deployment Configuration setup and we will select "Add a new forest". The Root domain name can be whatever you want, but just do not forget it. EX: mydomain.com. Finish installation.
 </p>
@@ -128,7 +128,7 @@ When finished installed, there will be a triangle symbol next to the flag in the
 Restart DC-1 and log back into DC-1 as the user mydomain.com\labuser (in this case nate.com\labuser)
 </p>
 <p>
-<img src="https://i.imgur.com/GrbqKhx.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/GrbqKhx.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
@@ -137,7 +137,7 @@ Restart DC-1 and log back into DC-1 as the user mydomain.com\labuser (in this ca
 <p>
 In the Server Manager Dashboard, click Tools on the top right and open "Active Directory Users and Computers"
 <p>
-<img src="https://i.imgur.com/wn8Ucb6.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/wn8Ucb6.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Create two Organizational Units (OU) and name one "_EMPLOYEES" and the other "_ADMINS"
@@ -149,16 +149,16 @@ Create two Organizational Units (OU) and name one "_EMPLOYEES" and the other "_A
 In the _ADMIN OU, create a new user for Jane Doe with the username being "jane_admin". For the user password, you may use Password1 or whatever you desire, just do not forget it. Uncheck all of the boxes while making Jane's password.
 </p>
 <p>
-<img src="https://i.imgur.com/M5x2K4E.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/M5x2K4E.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://i.imgur.com/Z7ExL1m.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Z7ExL1m.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 We will add jane_admin to the Domain Admins sercurity group by right clicking her name, going to Properties, and pressing "Member Of". Click add and type in Domain Admins and click OK.
 </p>
 <p>
-<img src="https://i.imgur.com/nNHlgMD.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/nNHlgMD.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <img src="https://i.imgur.com/ek8zUOO.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
@@ -167,7 +167,7 @@ We will add jane_admin to the Domain Admins sercurity group by right clicking he
 Log out of DC-1 and log back in using jane_admin as your admin account.
 </p>
 <p>
-<img src="https://i.imgur.com/3u3kp0t.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/3u3kp0t.png" height="40%" width="40%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
