@@ -171,132 +171,69 @@ Log out of DC-1 and log back in using jane_admin as your admin account.
 </p>
 <br />
 
-<p>
+<h3>STEP 5: Join Client-1 to your domain</h3>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+In Azure, change the DNS server of Client-1 by going to its Networking settings, Network interface, DNS servers, then changing its DNS servers to Custom. Type in DC-1's private IP address and click save. Now restart Client-1 from within Azure.
+<p>
+<img src="https://i.imgur.com/wE770us.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Login to Client-1 with your credentials and open up the Windows settings and go to the "About" tab. On the right hand side, press Rename this PC (advanced).
+</p>
+<p>
+<img src="https://i.imgur.com/dSIJcjv.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Click Change then under "Member of" click Domain and enter the name of the domain you created. (ex: mydomain.com) It will then ask you to enter your credentials to join the domain.
+</p>
+<p>
+<img src="https://i.imgur.com/Jdv7kRP.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+You should now be connected to the domain you created!
+</p>
+<p>
+To see that Client-1 has connected to the root domain, go back to DC-1 and in Active Directory Users and Computers, click Computers and it should show Client-1.
+</p>
+<p>
+<img src="https://i.imgur.com/4ohpzrm.png" height="60%" width="60%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
+<h3>STEP 6: Setup Remote Desktop for non-administrative users on Client-1</h3>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+Log out of Client-1 and log back in as jane_admin under your domain. Open the system properties and click Remote desktop on the right and go to the bottom and press "Select users that can remotely access this PC". Click Add then type in Domain Users and press OK.
+<p>
+<img src="https://i.imgur.com/RXYbwCa.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<img src="https://i.imgur.com/9PiBvrD.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-<p>
+<h3>STEP 7: Create additional users and attempt to log into Client-1 with one of the users</h3>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+Logged in as jane_admin on DC-1, open PowerShell_ise as an administrator. Make a new file and paste the contents of 
+
+  [this script](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1). As you can see at the top of the script, the password for all the users going to be created will be Password1 as shown below.
+<p>
+<img src="https://i.imgur.com/dplMwwn.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Observe that a bunch of accounts are being created.
 </p>
+<p>
+<img src="https://i.imgur.com/3U4cx2n.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Back in Active Directory Users and Computers click on the _EMPLOYEES and all of the users created will be shown there. If not, right click and hit refresh. 
+</p>
+<p>
+Finally, you can pick any username from the _EMPLOYEES OU and login to Client-1 with the given password in the script. Once logged in you can open the command prompt and type in "whoami" to see that you are logged in as a new created user on Client-1.
+</p>
+
 <br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Congrats! You have successfully configured Active Directory! :)
