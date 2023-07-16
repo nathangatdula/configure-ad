@@ -58,10 +58,7 @@ Once DC-1 is created, go to its Newtworking settings and set the DC's NIC Privat
 <p>
 <img src="https://i.imgur.com/9EPUQev.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 </p>
-<br />
 
-
-<p>
 Moving on the second VM, we will name it Client-1 that uses Windows 10 Pro version 22H2 with 2vcpus and 8 GiB memory. Also, make sure that in the networking tab of creating the VM, Client-1 should be on the same Virtual network as DC-1. 
 <p>
 <img src="https://i.imgur.com/7wmJYDq.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
